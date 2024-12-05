@@ -2,8 +2,11 @@ import pandas as pd
 from langchain import hub
 from langchain_openai import ChatOpenAI
 
+from src.prompts import fin_qa_evaluation_prompt
+
 # Grade prompt
 grade_prompt_answer_accuracy = prompt = hub.pull("langchain-ai/rag-answer-vs-reference")
+grade_prompt_answer_accuracy.messages[0].prompt.template = fin_qa_evaluation_prompt
 llm = ChatOpenAI(model="gpt-4o-mini")
 
 
@@ -37,4 +40,3 @@ if __name__ == "__main__":
 
     final_df = pd.concat([results, scores_df], axis=1)
     final_df.to_csv('../data/results-solution-1-evaluated.csv', index=False)
-
