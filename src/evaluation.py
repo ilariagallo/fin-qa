@@ -81,5 +81,5 @@ if __name__ == "__main__":
     report_filepath = data_folder + 'results-solution-1-report.csv'
 
     evaluator = AnswerEvaluator(fin_qa_evaluation_prompt)
-    # evaluator.run("../data/results-solution-1.csv", '../data/results-solution-1-evaluated.csv')
+    evaluator.run(predictions_filepath, evaluation_filepath)
     evaluator.create_report(evaluation_filepath, report_filepath)
