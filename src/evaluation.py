@@ -35,6 +35,7 @@ class AnswerEvaluator:
                                                 "student_answer": prediction})
         score = evaluation["Score"]
         explanation = evaluation['Explanation']
+        print(score)
 
         return [score, explanation]
 
