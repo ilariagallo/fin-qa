@@ -52,7 +52,7 @@ class InMemoryIndex:
         """
         # Extract headers and rows
         headers = ["", *table[0][1:]]  # Add empty header for row labels
-        rows = [table[i][0:1] + table[i][1:] for i in range(1, len(table))]
+        rows = [row for row in table[1:]]
 
         # Create a DataFrame for better formatting
         df = pd.DataFrame(rows, columns=headers)
