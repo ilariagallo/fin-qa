@@ -39,7 +39,7 @@ class AnswerEvaluator:
 
         return [score, explanation]
 
-    def run(self, input_filepath, output_filepath):
+    def run(self, input_filepath: str, output_filepath: str):
         """
         Runs evaluation on all predictions in the input file
 
@@ -54,8 +54,9 @@ class AnswerEvaluator:
         final_df.to_csv(output_filepath, index=False)
 
     @staticmethod
-    def create_report(evaluation_filepath, report_filepath):
+    def create_report(evaluation_filepath: str, report_filepath: str):
         """
+        Creates report with evaluation metrics
 
         :param evaluation_filepath: filepath to file with scores and explanations
         :param report_filepath: filepath to report file
@@ -76,10 +77,10 @@ class AnswerEvaluator:
 
 
 if __name__ == "__main__":
-    data_folder = '../data/'
-    predictions_filepath = data_folder + 'results-solution-1.csv'
-    evaluation_filepath = data_folder + 'results-solution-1-evaluated.csv'
-    report_filepath = data_folder + 'results-solution-1-report.csv'
+    data_folder = '../data/results/'
+    predictions_filepath = data_folder + 'results-solution-3.csv'
+    evaluation_filepath = data_folder + 'results-solution-3-evaluated.csv'
+    report_filepath = data_folder + 'results-solution-3-report.csv'
 
     evaluator = AnswerEvaluator(fin_qa_evaluation_prompt)
     evaluator.run(predictions_filepath, evaluation_filepath)

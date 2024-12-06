@@ -12,7 +12,9 @@ class State(TypedDict):
 
 
 class QAGraph:
-
+    """
+    Retrieval-generation graph for question answering
+    """
     PROMPT = hub.pull("rlm/rag-prompt")
     LLM = ChatOpenAI(model="gpt-4o")
 
@@ -23,10 +25,12 @@ class QAGraph:
         self.vector_store = vector_store
 
     def retrieve(self, state: State):
+        """Retrieval step responsible for retrieving the top-k relevant documents from the vector store"""
         retrieved_docs = self.vector_store.similarity_search(state["question"], k=8)
         return {"context": retrieved_docs}
 
     def generate(self, state: State):
+        """Generation step responsible for generating an answer to the question provided as input"""
         docs_content = "\n\n".join(doc.page_content for doc in state["context"])
         messages = self.PROMPT.invoke({"question": state["question"], "context": docs_content})
         response = self.LLM.invoke(messages)
