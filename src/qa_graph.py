@@ -14,7 +14,7 @@ class State(TypedDict):
 class QAGraph:
 
     PROMPT = hub.pull("rlm/rag-prompt")
-    LLM = ChatOpenAI(model="gpt-4o-mini")
+    LLM = ChatOpenAI(model="gpt-4o")
 
     def __init__(self, vector_store):
         graph = StateGraph(State).add_sequence([self.retrieve, self.generate])
@@ -23,9 +23,8 @@ class QAGraph:
         self.vector_store = vector_store
 
     def retrieve(self, state: State):
-        retrieved_docs = self.vector_store.similarity_search(state["question"])
-        retrieved_table = self.vector_store.get_by_ids(["table"])
-        return {"context": retrieved_docs + retrieved_table}
+        retrieved_docs = self.vector_store.similarity_search(state["question"], k=8)
+        return {"context": retrieved_docs}
 
     def generate(self, state: State):
         docs_content = "\n\n".join(doc.page_content for doc in state["context"])
