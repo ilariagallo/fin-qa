@@ -57,4 +57,4 @@ if __name__ == "__main__":
     predictions = inference.run_batch_inference(data_loader.data)
 
     results_folder = '../data/results/'
-    predictions.to_csv(results_folder + 'results-solution-3.csv', index=False)
+    predictions.to_csv(results_folder + 'results-solution-test.csv', index=False)
