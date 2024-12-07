@@ -47,7 +47,7 @@ The retrieval process leverages the similarity search functionality of the `InMe
 - **Approach 1**: Perform similarity search with a default value of `k=4` on documents derived from the `pre_text` and `post_text` paragraphs, while always including the table (retrieved by ID) as an additional document. This results in a total of five documents. However, this approach has limitations in generalizing to financial reports containing multiple tables.
 - **Approach 2**: Perform similarity search across all documents, including the table document, and allow the similarity search to determine the top-k documents. In this approach, `k` is set to `8` to improve recall. This method was selected for the final solution due to its ability to generalize effectively to reports with multiple tables.
 
-Detailed results comparing these two approaches can be found in the *Results* section.
+Detailed results comparing these two approaches can be found in the *Experiment Setup & Results* section.
 
 #### Generation
 
@@ -65,7 +65,7 @@ Answer:
 
 For the model, experiments were conducted using both `gpt-4o-mini` and `gpt-4o`. While `gpt-4o-mini` demonstrated strong mathematical reasoning capabilities, `gpt-4o`, with its larger parameter size (1.8 trillion vs. ~10 billion for `gpt-4o-mini`), yielded superior results. Consequently, `gpt-4o` was selected for the final solution.
 
-Further details and performance comparisons can be found in the *Results* section.
+Further details and performance comparisons can be found in the *Experiment Setup & Results* section.
 
 ### Inference
 
