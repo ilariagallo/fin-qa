@@ -38,7 +38,12 @@ For details on splitting, embedding, and storing processes, refer to the `indexi
 
 The retrieval and generation steps are orchestrated using a graph-based approach, which sequences the two steps: retrieval followed by generation.
 
-*(Placeholder: Add an illustrative graph of the process here.)*
+<figure>
+  <p align="center">
+    <img src="images/graph.png" width="150">
+  </p>
+  <figcaption align="center">Figure 1: Simple graph for QA retrieval-generation</figcaption>
+</figure>
 
 #### Retrieval
 
