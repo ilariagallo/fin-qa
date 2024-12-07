@@ -100,7 +100,17 @@ This experiment involved performing similarity search with a default value of `k
 
 *Table 1: Distribution of scores for the first proposed approach.*
 
-Results from this experiment indicate that 59.6% of the answers were relevant, with 15.6% affected by minor approximation errors.
+
+Representative **examples** of answers evaluated by the LLM and assigned a **score of 0.5**:
+
+
+| Question | Actual Answer | Expected Answer | Score | Explanation |
+|----------|---------------|-----------------|-------|-------------|
+| what was the percentage change in the net cash used in investing activities from 2006 to 2007 | "The net cash used in investing activities decreased from -$1460 million in 2006 to -$1367 million in 2007. This represents a percentage change of approximately 6.36% decrease." | -6.4% | 0.5 | "The student's answer of -6.4% is close to the correct percentage change of approximately -6.36%. While it is not exactly accurate, it falls within an acceptable margin of ±0.5%. The student's answer does not contain conflicting statements and is factually aligned with the context of the ground truth answer." |
+| what was the percentage change in rent expenses included in selling , general and administrative expense from 2014 to 2015? | "The rent expense included in selling, general, and administrative expense was $59.0 million in 2014 and $83.0 million in 2015. This represents a percentage change of approximately 40.68% from 2014 to 2015." | 41% | 0.5 | "The student's answer of 41% is close to the ground truth answer of approximately 40.68%, falling within the acceptable margin of ±0.5%. However, it lacks the detail provided in the ground truth regarding the specific rent expense amounts for both years. Therefore, while the percentage is accurate within the margin, the answer does not fully meet all criteria due to the omission of key information." |
+| as of december 31 , 2017 what was the percent of the system energy credit facility utilization | "As of December 31, 2017, the utilization of the system energy credit facility was approximately 56.8%. This is calculated based on $17.8 million in letters of credit and $50 million in loans outstanding against a total credit facility of $120 million." | 56.7% | 0.5 | "The student's answer of 56.7% is very close to the ground truth answer of 56.8%, falling within the acceptable margin of ±0.5%. However, the student did not provide the full context or calculation related to the total credit facility, letters of credit, and loans outstanding, which would have strengthened their answer. Therefore, while the percentage itself is accurate within the margin, the lack of additional details affects the overall completeness of the response." |
+
+Results from this experiment indicate that **59.6% of the answers were relevant**, with 15.6% affected by minor approximation errors.
 
 #### Experiment 2
 
@@ -114,7 +124,7 @@ In this experiment, similarity search was performed across all documents, includ
 
 *Table 2: Distribution of scores for the second proposed approach.*
 
-Results from this experiment closely resemble those of the first, with 58.6% of the answers being relevant and 14.8% exhibiting minor approximation errors. The increased `k` value (8) improved the likelihood of including all relevant information, such as the table, in the context.
+Results from this experiment closely resemble those of the first, with **58.6% of the answers being relevant** and 14.8% exhibiting minor approximation errors. The increased `k` value (8) improved the likelihood of including all relevant information, such as the table, in the context.
 
 #### Experiment 3
 
@@ -128,7 +138,7 @@ The final experiment retained the same retrieval configuration as Experiment 2 b
 
 *Table 3: Distribution of scores for the third proposed approach.*
 
-This configuration delivered the best results, with 64.5% of the answers being relevant and only 10.9% affected by minor approximation errors. These results demonstrate that the retrieval step is effectively including relevant context in the prompt. Additionally, the improved mathematical and reasoning capabilities of the larger `gpt-4o` model contributed significantly to better performance. This highlights the potential for further advancements by leveraging more powerful models in the generation step.
+This configuration delivered the best results, with **64.5% of the answers being relevant** and only 10.9% affected by minor approximation errors. These results demonstrate that the retrieval step is effectively including relevant context in the prompt. Additionally, the improved mathematical and reasoning capabilities of the larger `gpt-4o` model contributed significantly to better performance. This highlights the potential for further advancements by leveraging more powerful models in the generation step.
 
 
 
