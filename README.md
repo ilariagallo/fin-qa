@@ -42,7 +42,7 @@ The retrieval and generation steps are orchestrated using a graph-based approach
   <p align="center">
     <img src="images/graph.png" width="150">
   </p>
-  <figcaption align="center">Figure 1: Simple graph for QA retrieval-generation</figcaption>
+  <p align="center">Figure 1: Simple graph for QA retrieval-generation</p>
 </figure>
 
 #### Retrieval
