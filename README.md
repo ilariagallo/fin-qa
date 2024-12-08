@@ -99,9 +99,9 @@ This experiment involved performing similarity search with a default value of `k
 
 | Score | Count | Percentage (%) |
 |-------|-------|----------------|
-| 0.0   | 405   | 40.5           |
-| 0.5   | 156   | 15.6           |
-| 1.0   | 439   | 43.9           |
+| 0.0   | 307   | 30.7           |
+| 0.5   | 223   | 22.3           |
+| 1.0   | 470   | 47.0           |
 
 *Table 1: Distribution of scores for the first proposed approach.*
 
@@ -111,11 +111,11 @@ Representative **examples** of answers evaluated by the LLM and assigned a **sco
 
 | Question | Actual Answer | Expected Answer | Score | Explanation |
 |----------|---------------|-----------------|-------|-------------|
-| what was the percentage change in the net cash used in investing activities from 2006 to 2007 | "The net cash used in investing activities decreased from -$1460 million in 2006 to -$1367 million in 2007. This represents a percentage change of approximately 6.36% decrease." | -6.4% | 0.5 | "The student's answer of -6.4% is close to the correct percentage change of approximately -6.36%. While it is not exactly accurate, it falls within an acceptable margin of ±0.5%. The student's answer does not contain conflicting statements and is factually aligned with the context of the ground truth answer." |
-| what was the percentage change in rent expenses included in selling , general and administrative expense from 2014 to 2015? | "The rent expense included in selling, general, and administrative expense was $59.0 million in 2014 and $83.0 million in 2015. This represents a percentage change of approximately 40.68% from 2014 to 2015." | 41% | 0.5 | "The student's answer of 41% is close to the ground truth answer of approximately 40.68%, falling within the acceptable margin of ±0.5%. However, it lacks the detail provided in the ground truth regarding the specific rent expense amounts for both years. Therefore, while the percentage is accurate within the margin, the answer does not fully meet all criteria due to the omission of key information." |
-| as of december 31 , 2017 what was the percent of the system energy credit facility utilization | "As of December 31, 2017, the utilization of the system energy credit facility was approximately 56.8%. This is calculated based on $17.8 million in letters of credit and $50 million in loans outstanding against a total credit facility of $120 million." | 56.7% | 0.5 | "The student's answer of 56.7% is very close to the ground truth answer of 56.8%, falling within the acceptable margin of ±0.5%. However, the student did not provide the full context or calculation related to the total credit facility, letters of credit, and loans outstanding, which would have strengthened their answer. Therefore, while the percentage itself is accurate within the margin, the lack of additional details affects the overall completeness of the response." |
+| what was the percentage change in industry segment operating profits from 2006 to 2007? | "The industry segment operating profits increased from $2,074 million in 2006 to $2,423 million in 2007. This represents a percentage change of approximately 16.8%." | 17% | 0.5 | "The student's answer provides the correct figures for operating profits in 2006 and 2007, which allows for the calculation of the percentage change. However, the percentage change they calculated (16.8%) is slightly less than the ground truth answer (17%). This shows that while the student has demonstrated an understanding of the calculation and provided relevant figures, their final percentage is not accurate within the required margin. Therefore, they receive a score of 0.5 for correctly identifying the change but not achieving the precise percentage." |
+| what was the percentage chaning in the total fair value of restricted stock and performance awards vested from 2016 to 2017? | The total fair value of restricted stock and performance awards vested increased from $20.0 million in 2016 to $33.7 million in 2017. This represents a percentage change of 68.5%. | 69% | 0.5 | "The student's answer provides a detailed calculation of the percentage change in the total fair value of restricted stock and performance awards vested from 2016 to 2017. While the ground truth states a percentage change of 69%, the student calculated it as 68.5%, which is a minor discrepancy within the ±0.5 margin. Since the student answer contains accurate information and reasoning, it deserves a score of 0.5 for being close to the correct answer." |
+| what was the percent of the growth in the revenues from 2005 to 2006 | "The revenue in 2005 was $50,583 and in 2006 it was $73,501. To calculate the growth percentage: \[(73,501 - 50,583) / 50,583 \times 100\] which equals approximately 45.2%. Therefore, the percent of the growth in revenues from 2005 to 2006 was about 45.2%." | 45.3% | 0.5 | "The student provided a calculation for the growth percentage that is close to the ground truth answer of 45.3%, with their result being approximately 45.2%. Although this is accurate within a margin of ±0.5%, the answer does not match the ground truth exactly, which affects the score. However, the student did not present conflicting statements and their calculations were clear and accurate." |
 
-Results from this experiment indicate that **59.6% of the answers were relevant**, with 15.6% affected by minor approximation errors.
+Results from this experiment indicate that **69.3% of the answers were relevant**, with 22.3% affected by minor approximation errors.
 
 ### Experiment 2
 
@@ -123,13 +123,13 @@ In this experiment, similarity search was performed across all documents, includ
 
 | Score | Count | Percentage (%) |
 |-------|-------|----------------|
-| 0.0   | 414   | 41.4           |
-| 0.5   | 148   | 14.8           |
-| 1.0   | 438   | 43.8           |
+| 0.0   | 328   | 32.8           |
+| 0.5   | 190   | 19.0           |
+| 1.0   | 482   | 48.2           |
 
 *Table 2: Distribution of scores for the second proposed approach.*
 
-Results from this experiment closely resemble those of the first, with **58.6% of the answers being relevant** and 14.8% exhibiting minor approximation errors. The increased `k` value (8) improved the likelihood of including all relevant information, such as the table, in the context.
+Results from this experiment closely resemble those of the first, with **67.2% of the answers being relevant** and 19.0% exhibiting minor approximation errors. The increased `k` value (8) improved the likelihood of including all relevant information, such as the table, in the context.
 
 ### Experiment 3
 
@@ -137,13 +137,13 @@ The final experiment retained the same retrieval configuration as Experiment 2 b
 
 | Score | Count | Percentage (%) |
 |-------|-------|----------------|
-| 0.0   | 355   | 35.5           |
-| 0.5   | 109   | 10.9           |
-| 1.0   | 536   | 53.6           |
+| 0.0   | 282   | 28.2           |
+| 0.5   | 153   | 15.3           |
+| 1.0   | 565   | 56.5           |
 
 *Table 3: Distribution of scores for the third proposed approach.*
 
-This configuration delivered the best results, with **64.5% of the answers being relevant** and only 10.9% affected by minor approximation errors. These results demonstrate that the retrieval step is effectively including relevant context in the prompt. Additionally, the improved mathematical and reasoning capabilities of the larger `gpt-4o` model contributed significantly to better performance. This highlights the potential for further advancements by leveraging more powerful models in the generation step.
+This configuration delivered the best results, with **71.8% of the answers being relevant** and only 15.3% affected by minor approximation errors. These results demonstrate that the retrieval step is effectively including relevant context in the prompt. Additionally, the improved mathematical and reasoning capabilities of the larger `gpt-4o` model contributed significantly to better performance. This highlights the potential for further advancements by leveraging more powerful models in the generation step.
 
 ## Future Work
 
