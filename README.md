@@ -115,7 +115,7 @@ Representative **examples** of answers evaluated by the LLM and assigned a **sco
 | what was the percent of the growth in the revenues from 2005 to 2006 | "The revenue in 2005 was $50,583 and in 2006 it was $73,501. To calculate the growth percentage: \[(73,501 - 50,583) / 50,583 \times 100\] which equals approximately 45.2%. Therefore, the percent of the growth in revenues from 2005 to 2006 was about 45.2%." | 45.3% | 0.5 | "The student provided a calculation for the growth percentage that is close to the ground truth answer of 45.3%, with their result being approximately 45.2%. Although this is accurate within a margin of ±0.5%, the answer does not match the ground truth exactly, which affects the score. However, the student did not present conflicting statements and their calculations were clear and accurate." |
 | what is the growth rate in operating profit for aeronautics in 2012? | "The growth rate in operating profit for aeronautics in 2012 compared to 2011 was approximately 4%, as the operating profit increased by $69 million." | 4.2% | 0.5 | "The student's answer contains a growth rate of approximately 4% which is close to the correct answer of 4.2%. This falls within the acceptable margin of ±0.5 for a score of 0.5. However, since the exact growth rate is not provided and the student states 'approximately 4%' instead of the precise figure, it does not fully satisfy the criteria for a score of 1." |
 
-Results from this experiment indicate that **69.3% of the answers were relevant**, with 22.3% affected by minor approximation errors.
+Results from this experiment indicate that **69.3% of the answers were relevant**. Among these, 22.3% were affected by minor approximation errors.
 
 ### Experiment 2
 
@@ -129,7 +129,7 @@ In this experiment, similarity search was performed across all documents, includ
 
 *Table 2: Distribution of scores for the second proposed approach.*
 
-Results from this experiment closely resemble those of the first, with **67.2% of the answers being relevant** and 19.0% exhibiting minor approximation errors. The increased `k` value (8) improved the likelihood of including all relevant information, such as the table, in the context.
+Results from this experiment closely resemble those of the first, with **67.2% of the answers being relevant** and 19.0% of these exhibiting minor approximation errors. The increased `k` value (8) improved the likelihood of including all relevant information, such as the table, in the context.
 
 ### Experiment 3
 
@@ -143,7 +143,7 @@ The final experiment retained the same retrieval configuration as Experiment 2 b
 
 *Table 3: Distribution of scores for the third proposed approach.*
 
-This configuration delivered the best results, with **71.8% of the answers being relevant** and only 15.3% affected by minor approximation errors. These results demonstrate that the retrieval step is effectively including relevant context in the prompt. Additionally, the improved mathematical and reasoning capabilities of the larger `gpt-4o` model contributed significantly to better performance. This highlights the potential for further advancements by leveraging more powerful models in the generation step.
+This configuration delivered the best results, with **71.8% of the answers being relevant** and only 15.3% of these affected by minor approximation errors. These results demonstrate that the retrieval step is effectively including relevant context in the prompt. Additionally, the improved mathematical and reasoning capabilities of the larger `gpt-4o` model contributed significantly to better performance. This highlights the potential for further advancements by leveraging more powerful models in the generation step.
 
 ## Future Work
 
