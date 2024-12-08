@@ -26,8 +26,8 @@ class AnswerEvaluator:
 
         # Get question, ground truth answer, RAG chain answer
         input_question = qa['question']
-        reference = qa['actual_answer']
-        prediction = qa['expected_answer']
+        reference = qa['expected_answer']
+        prediction = qa['actual_answer']
 
         # Run evaluator
         evaluation = self.answer_grader.invoke({"question": input_question,
