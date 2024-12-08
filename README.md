@@ -177,4 +177,4 @@ To accommodate concurrent users, we could introduce a configuration that include
 config = {"configurable": {"thread_id": "1", "user_id": "2"}}
 ```
 
-For production environments, a suitable database such as DynamoDB could be employed to store message history, providing fast retrieval capabilities.
+For production environments, a suitable database such as DynamoDB could be employed to store message history.
