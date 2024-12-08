@@ -91,7 +91,7 @@ Finally, a detailed evaluation report was generated. The report summarizes the e
 
 ## Experiment Setup & Results
 
-Three different approaches were evaluated using the previously described evaluation framework. Each approach was tested on the first 1,000 financial reports from `train.json` to control resource costs.
+Three different approaches were evaluated using the previously described evaluation framework. Each approach was tested on the first 1000 financial reports from `train.json` to control resource costs.
 
 ### Experiment 1
 
